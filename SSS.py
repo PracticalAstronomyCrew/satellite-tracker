@@ -346,7 +346,7 @@ class Ui_MainWindow(object):
 
 
             #running the code
-            satUrl = 'http://celestrak.com/NORAD/elements/active.txt'
+            satUrl = 'http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle'
             sats = load.tle_file(satUrl)
             print('Loaded', len(sats), 'satellites')
             satNames = {sat.name: sat for sat in sats} #list of all the satellites
@@ -447,7 +447,7 @@ class Ui_MainWindow(object):
             self.timer.stop()
             
             #remove the active.txt file
-            os.remove("active.txt")
+            os.remove("gp.php")
 
             #execute the new window
             dialog.exec_()
